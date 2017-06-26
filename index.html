@@ -4,19 +4,52 @@
 <meta charset="UTF-8">
 <title>Agencia El Padrino</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
-	$.ajax({
-	    type: "GET",
-	    url: "https://drive.google.com/uc?export=view&id=0B_kdVHxj9qjOeEZDUHVUSE8xWjA",
-	    dataType: "text",
-	    success: function(data) {alert(data);}
-	 });
-</script>
+
+<style type="text/css">
+	body, html {
+    	height: 100%;
+    	margin: 0;
+	}
+
+	.bg { 
+	    /* The image used */
+	    background-image: url("template.jpg");
+
+	    /* Full height */
+	    height: 100%; 
+
+	    /* Center and scale the image nicely */
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	}
+	.cabeza {
+		position: absolute;
+		color: rgb(206,42,43);
+		font-size: 3.5vh;
+		font-family: Impact, Charcoal, sans-serif;
+	}
+</style>
+
 </head>
 
-<body style="margin: 0px;">
-<img src="https://drive.google.com/uc?export=view&id=0B_kdVHxj9qjOMG00aldzWlVkOGM" width="1280" height="720" />
-
+<body>
+	<div class="bg" style="position: relative;">
+		<div id="tem_0" class="cabeza" style="top: 46.2%; left: 25%;"></div>
+		<div id="tem_1" class="cabeza" style="top: 51.8%; left: 25%;"></div>
+		<div id="tem_2" class="cabeza" style="top: 57.6%; left: 25%;"></div>
+	</div>
 </body>
+
+<script>
+	function doData(data) {
+		data = data.feed.entry
+		for(var r=0; r<data.length; r++) {
+          var cell = data[r]["gs$cell"];
+          $("#tem_" + r).text(cell["$t"]);
+      }
+    }
+</script>
+<script src="https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData"></script>
 
 </html>
