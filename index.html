@@ -60,33 +60,26 @@
 </body>
 
 <script>
-	jQuery.ajax({
-	        url: "https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData",
-	        dataType: 'script',
-	        async: true
-	});
-	window.setInterval(function(){
+	function doData(data) {
+		data = data.feed.entry
+  		$("div[id^=tem_]").text("");
+		if (data[2].title.$t == 'D1') {
+			for(var r=0; r<data.length; r++) {
+          		var cell = data[r]["gs$cell"];
+      			$("#tem_" + data[r].title.$t).text(cell["$t"]);
+			}
+		}
+
+    }
+	function refresh() {
 	  	jQuery.ajax({
 	        url: "https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData",
 	        dataType: 'script',
 	        async: true
     	});
-	}, 5000);
-	function doData(data) {
-		data = data.feed.entry
-		if (data[2].title.$t == 'D1') {
-			for(var r=0; r<data.length; r++) {
-          		var cell = data[r]["gs$cell"];
-          		$("#tem_" + data[r].title.$t).text(cell["$t"]);
-			}
-		}
-		else {
-			for(var r=0; r<41; r++) {
-          		$("#tem_" + r).text("");
-			}	
-		}
-    }
+	}
+	window.setInterval(refresh, 5000);
+	refresh();
 </script>
-<!--<script src="https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData"></script>-->
 
 </html>
