@@ -38,36 +38,55 @@
 
 <body>
 	<img src="template.jpg" style="position: relative; width: 100%; height: 100%;">
-		<div id="tem_2" class="dia" style="width:30%; top: 29.5%; left: 4.5%;"></div>
-		<div id="tem_7" class="cabeza" style="top: 45.8%; left: 24%;"></div>
-		<div id="tem_8" class="cabeza" style="top: 51.5%; left: 24%;"></div>
-		<div id="tem_9" class="cabeza" style="top: 57.2%; left: 24%;"></div>
-		<div id="tem_15" class="cabeza" style="top: 74.3%; left: 24%;"></div>
-		<div id="tem_16" class="cabeza" style="top: 80%; left: 24%;"></div>
-		<div id="tem_17" class="cabeza" style="top: 85.9%; left: 24%;"></div>
-		<div id="tem_18" class="cabeza" style="top: 91.7%; left: 24%;"></div>
-		<div id="tem_23" class="cabeza" style="top: 28.5%; left: 85%;"></div>
-		<div id="tem_24" class="cabeza" style="top: 34.4%; left: 85%;"></div>
-		<div id="tem_25" class="cabeza" style="top: 40.1%; left: 85%;"></div>
-		<div id="tem_34" class="cabeza" style="top: 57.1%; left: 85%;"></div>
-		<div id="tem_35" class="cabeza" style="top: 63%; left: 85%;"></div>
-		<div id="tem_36" class="cabeza" style="top: 68.6%; left: 85%;"></div>
-		<div id="tem_37" class="cabeza" style="top: 74.3%; left: 85%;"></div>
-		<div id="tem_38" class="cabeza" style="top: 80%; left: 85%;"></div>
-		<div id="tem_39" class="cabeza" style="top: 85.9%; left: 85%;"></div>
-		<div id="tem_40" class="cabeza" style="top: 91.7%; left: 85%;"></div>
+		<div id="tem_D1" class="dia" style="width:30%; top: 29.5%; left: 4.5%;"></div>
+		<div id="tem_A5" class="cabeza" style="top: 45.8%; left: 24%;"></div>
+		<div id="tem_B5" class="cabeza" style="top: 51.5%; left: 24%;"></div>
+		<div id="tem_C5" class="cabeza" style="top: 57.2%; left: 24%;"></div>
+		<div id="tem_A9" class="cabeza" style="top: 74.5%; left: 24%;"></div>
+		<div id="tem_B9" class="cabeza" style="top: 80%; left: 24%;"></div>
+		<div id="tem_C9" class="cabeza" style="top: 85.9%; left: 24%;"></div>
+		<div id="tem_D9" class="cabeza" style="top: 91.7%; left: 24%;"></div>
+		<div id="tem_A13" class="cabeza" style="top: 28.5%; left: 85%;"></div>
+		<div id="tem_B13" class="cabeza" style="top: 34.4%; left: 85%;"></div>
+		<div id="tem_C13" class="cabeza" style="top: 40.1%; left: 85%;"></div>
+		<div id="tem_A17" class="cabeza" style="top: 57.3%; left: 85%;"></div>
+		<div id="tem_B17" class="cabeza" style="top: 63%; left: 85%;"></div>
+		<div id="tem_C17" class="cabeza" style="top: 68.8%; left: 85%;"></div>
+		<div id="tem_D17" class="cabeza" style="top: 74.5%; left: 85%;"></div>
+		<div id="tem_E17" class="cabeza" style="top: 80.4%; left: 85%;"></div>
+		<div id="tem_F17" class="cabeza" style="top: 85.9%; left: 85%;"></div>
+		<div id="tem_G17" class="cabeza" style="top: 91.7%; left: 85%;"></div>
 	</img>
 </body>
 
 <script>
+	jQuery.ajax({
+	        url: "https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData",
+	        dataType: 'script',
+	        async: true
+	});
+	window.setInterval(function(){
+	  	jQuery.ajax({
+	        url: "https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData",
+	        dataType: 'script',
+	        async: true
+    	});
+	}, 5000);
 	function doData(data) {
 		data = data.feed.entry
-		for(var r=0; r<data.length; r++) {
-          var cell = data[r]["gs$cell"];
-          $("#tem_" + r).text(cell["$t"]);
-      }
+		if (data[2].title.$t == 'D1') {
+			for(var r=0; r<data.length; r++) {
+          		var cell = data[r]["gs$cell"];
+          		$("#tem_" + data[r].title.$t).text(cell["$t"]);
+			}
+		}
+		else {
+			for(var r=0; r<41; r++) {
+          		$("#tem_" + r).text("");
+			}	
+		}
     }
 </script>
-<script src="https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData"></script>
+<!--<script src="https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData"></script>-->
 
 </html>
