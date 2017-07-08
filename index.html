@@ -11,34 +11,52 @@
     	margin: 0;
 	}
 
-	.bg { 
-	    /* The image used */
-	    background-image: url("template.jpg");
+	@font-face {
+	  font-family: 'SAS Monospace';
+	  src: url('SAS Monospace Bold Regular.ttf');
+	}
 
-	    /* Full height */
-	    height: 100%; 
-
-	    /* Center and scale the image nicely */
-	    background-position: center;
-	    background-repeat: no-repeat;
-	    background-size: cover;
+	.dia {
+		position: absolute;
+		color: rgb(255,255,255);
+		font-size: 4.2vh;
+		font-family: 'SAS Monospace';
+		font-weight: 100;
+		text-align: center;
 	}
 	.cabeza {
 		position: absolute;
 		color: rgb(206,42,43);
-		font-size: 3.5vh;
-		font-family: Impact, Charcoal, sans-serif;
+		font-size: 4.3vh;
+		letter-spacing: 10px;
+		font-family: 'SAS Monospace';
+		font-weight: 900;
 	}
 </style>
 
 </head>
 
 <body>
-	<div class="bg" style="position: relative;">
-		<div id="tem_0" class="cabeza" style="top: 46.2%; left: 25%;"></div>
-		<div id="tem_1" class="cabeza" style="top: 51.8%; left: 25%;"></div>
-		<div id="tem_2" class="cabeza" style="top: 57.6%; left: 25%;"></div>
-	</div>
+	<img src="template.jpg" style="position: relative; width: 100%; height: 100%;">
+		<div id="tem_2" class="dia" style="width:30%; top: 29.5%; left: 4.5%;"></div>
+		<div id="tem_7" class="cabeza" style="top: 45.8%; left: 24%;"></div>
+		<div id="tem_8" class="cabeza" style="top: 51.5%; left: 24%;"></div>
+		<div id="tem_9" class="cabeza" style="top: 57.2%; left: 24%;"></div>
+		<div id="tem_15" class="cabeza" style="top: 74.3%; left: 24%;"></div>
+		<div id="tem_16" class="cabeza" style="top: 80%; left: 24%;"></div>
+		<div id="tem_17" class="cabeza" style="top: 85.9%; left: 24%;"></div>
+		<div id="tem_18" class="cabeza" style="top: 91.7%; left: 24%;"></div>
+		<div id="tem_23" class="cabeza" style="top: 28.5%; left: 85%;"></div>
+		<div id="tem_24" class="cabeza" style="top: 34.4%; left: 85%;"></div>
+		<div id="tem_25" class="cabeza" style="top: 40.1%; left: 85%;"></div>
+		<div id="tem_34" class="cabeza" style="top: 57.1%; left: 85%;"></div>
+		<div id="tem_35" class="cabeza" style="top: 63%; left: 85%;"></div>
+		<div id="tem_36" class="cabeza" style="top: 68.6%; left: 85%;"></div>
+		<div id="tem_37" class="cabeza" style="top: 74.3%; left: 85%;"></div>
+		<div id="tem_38" class="cabeza" style="top: 80%; left: 85%;"></div>
+		<div id="tem_39" class="cabeza" style="top: 85.9%; left: 85%;"></div>
+		<div id="tem_40" class="cabeza" style="top: 91.7%; left: 85%;"></div>
+	</img>
 </body>
 
 <script>
