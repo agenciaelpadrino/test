@@ -24,49 +24,125 @@
 		font-weight: 100;
 		text-align: center;
 	}
+    .cabeza_titulo {
+        position: absolute;
+        color: rgb(3,76,160);
+        font-size: 6vh;
+        letter-spacing: 20px;
+        font-family: 'SAS Monospace';
+        font-weight: 900;
+    }
+    .cabeza_nombre {
+        position: absolute;
+        color: rgb(88,186,70);
+        font-size: 4.3vh;
+        letter-spacing: 10px;
+        font-family: 'SAS Monospace';
+        font-weight: 900;
+    }
 	.cabeza {
 		position: absolute;
 		color: rgb(206,42,43);
-		font-size: 4.3vh;
+        font-size: 4.3vh;
 		letter-spacing: 10px;
 		font-family: 'SAS Monospace';
 		font-weight: 900;
 	}
+    .cabeza_border {
+        position: absolute;
+        border-width: 4px;
+        border-color: rgb(3,76,160);
+        border-style: solid;
+        height: 4%;
+        width: 9%;
+        margin-left: -1.1%;
+        margin-top: 0.1%;
+    }
 </style>
 
 </head>
 
 <body>
-	<img src="template.jpg" style="position: relative; width: 100%; height: 100%;">
-		<div id="tem_D1" class="dia" style="width:30%; top: 29.5%; left: 4.5%;"></div>
-		<div id="tem_A5" class="cabeza" style="top: 45.8%; left: 24%;"></div>
-		<div id="tem_B5" class="cabeza" style="top: 51.5%; left: 24%;"></div>
-		<div id="tem_C5" class="cabeza" style="top: 57.2%; left: 24%;"></div>
-		<div id="tem_A9" class="cabeza" style="top: 74.5%; left: 24%;"></div>
-		<div id="tem_B9" class="cabeza" style="top: 80%; left: 24%;"></div>
-		<div id="tem_C9" class="cabeza" style="top: 85.9%; left: 24%;"></div>
-		<div id="tem_D9" class="cabeza" style="top: 91.7%; left: 24%;"></div>
-		<div id="tem_A13" class="cabeza" style="top: 28.5%; left: 85%;"></div>
-		<div id="tem_B13" class="cabeza" style="top: 34.4%; left: 85%;"></div>
-		<div id="tem_C13" class="cabeza" style="top: 40.1%; left: 85%;"></div>
-		<div id="tem_A17" class="cabeza" style="top: 57.3%; left: 85%;"></div>
-		<div id="tem_B17" class="cabeza" style="top: 63%; left: 85%;"></div>
-		<div id="tem_C17" class="cabeza" style="top: 68.8%; left: 85%;"></div>
-		<div id="tem_D17" class="cabeza" style="top: 74.5%; left: 85%;"></div>
-		<div id="tem_E17" class="cabeza" style="top: 80.4%; left: 85%;"></div>
-		<div id="tem_F17" class="cabeza" style="top: 85.9%; left: 85%;"></div>
-		<div id="tem_G17" class="cabeza" style="top: 91.7%; left: 85%;"></div>
+	<img id="template" src="template.jpg" style="position: relative; width: 100%; height: 100%;">
 	</img>
 </body>
 
 <script>
 	function doData(data) {
-		data = data.feed.entry
-  		$("div[id^=tem_]").text("");
+		data = data.feed.entry;
+        $("[id^='tem_']").remove();
 		if (data[2].title.$t == 'D1') {
+		    let primeras_nombre = 0;
+            let primeras = 0;
+            let primeras_length = 0;
+            let matutinas_nombre = 0;
+            let matutinas = 0;
+            let matutinas_length = 0;
+            let vespertinas_nombre = 0;
+            let vespertinas = 0;
+            let vespertinas_length = 0;
+            let nocturnas_nombre = 0;
+            let nocturnas = 0;
+            let nocturnas_length = 0;
+            for(var r=0; r<data.length; r++) {
+                if (data[r].title.$t.match(/[A-Z]4/i)) {
+                    primeras_length++;
+                }
+                if (data[r].title.$t.match(/[A-Z]8/i)) {
+                    matutinas_length++;
+                }
+                if (data[r].title.$t.match(/[A-Z]12/i)) {
+                    vespertinas_length++;
+                }
+                if (data[r].title.$t.match(/[A-Z]16/i)) {
+                    nocturnas_length++;
+                }
+            }
 			for(var r=0; r<data.length; r++) {
-          		var cell = data[r]["gs$cell"];
-      			$("#tem_" + data[r].title.$t).text(cell["$t"]);
+                var cell = data[r]["gs$cell"];
+                if (data[r].title.$t == 'D1') {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"dia\" style=\"top: 26.5%; left: 42%;\">" + cell["$t"] + "</div>")
+                }
+                if (data[r].title.$t.match(/[A-Z]3/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: 20.5%; left: 4%;\">" + cell["$t"] + "</div>")
+                }
+			    if (data[r].title.$t.match(/[A-Z]4/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (28 + (primeras_nombre * 5.5)).toString() + "%; left: 4%;\">" + cell["$t"] + "</div>");
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (28 + (primeras_nombre++ * 5.5)).toString() + "%; left: 26%;\"></div>")
+                }
+                if (data[r].title.$t.match(/[A-Z]5/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (28 + (primeras++ * 5.5)).toString() + "%; left: 26%;\">" + cell["$t"] + "</div>");
+                }
+                if (data[r].title.$t.match(/[A-Z]7/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: " + (24 + ((primeras_length + 1) * 5.5)) + "%; left: 4%;\">" + cell["$t"] + "</div>")
+                }
+                if (data[r].title.$t.match(/[A-Z]8/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (++matutinas_nombre * 5.5)).toString() + "%; left: 4%;\">" + cell["$t"] + "</div>");
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (matutinas_nombre * 5.5)).toString() + "%; left: 26%;\"></div>");
+                }
+                if (data[r].title.$t.match(/[A-Z]9/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (++matutinas * 5.5)).toString() + "%; left: 26%;\">" + cell["$t"] + "</div>");
+                }
+                if (data[r].title.$t.match(/[A-Z]11/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: 20.5%; left: 64%;\">" + cell["$t"] + "</div>")
+                }
+                if (data[r].title.$t.match(/[A-Z]12/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (28 + (vespertinas_nombre * 5.5)).toString() + "%; left: 64%;\">" + cell["$t"] + "</div>");
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (28 + (vespertinas_nombre++ * 5.5)).toString() + "%; left: 86%;\"></div>")
+                }
+                if (data[r].title.$t.match(/[A-Z]13/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (28 + (vespertinas++ * 5.5)).toString() + "%; left: 86%;\">" + cell["$t"] + "</div>");
+                }
+                if (data[r].title.$t.match(/[A-Z]15/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: " + (24 + ((vespertinas_length + 1) * 5.5)) + "%; left: 64%;\">" + cell["$t"] + "</div>")
+                }
+                if (data[r].title.$t.match(/[A-Z]16/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (++nocturnas_nombre * 5.5)).toString() + "%; left: 64%;\">" + cell["$t"] + "</div>");
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (nocturnas_nombre * 5.5)).toString() + "%; left: 86%;\"></div>")
+                }
+                if (data[r].title.$t.match(/[A-Z]17/i)) {
+                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (++nocturnas * 5.5)).toString() + "%; left: 86%;\">" + cell["$t"] + "</div>");
+                }
 			}
 		}
 
