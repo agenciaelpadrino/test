@@ -28,7 +28,6 @@
 	font-family: 'SAS Monospace';
 	font-weight: 100;
 	text-align: center;
-	z-index: 100000;
     }
     .cabeza_titulo {
         position: absolute;
@@ -37,7 +36,6 @@
         letter-spacing: 10px;
         font-family: 'Fira Mono';
         font-weight: 900;
-    	z-index: 100000;
     }
     .cabeza_nombre {
         position: absolute;
@@ -46,7 +44,6 @@
         letter-spacing: 5px;
         font-family: 'SAS Monospace';
         font-weight: 900;
-        z-index: 100000;
     }
     .cabeza {
 	position: absolute;
@@ -55,7 +52,6 @@
 	letter-spacing: 10px;
 	font-family: 'SAS Monospace';
 	font-weight: 900;
-        z-index: 100000;
     }
     .cabeza_border {
         position: absolute;
@@ -66,7 +62,6 @@
         width: 12%;
         margin-left: -2.5%;
         margin-top: 0.1%;
-	z-index: 100000;
     }
 </style>
 
@@ -111,47 +106,47 @@
 			for(var r=0; r<data.length; r++) {
                 var cell = data[r]["gs$cell"];
                 if (data[r].title.$t == 'D1') {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"dia\" style=\"top: 26.5%; left: 43%;\">" + cell["$t"] + "</div>")
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"dia\" style=\"top: 26.5%; left: 43%;\">" + cell["$t"] + "</div>")
                 }
                 if (data[r].title.$t.match(/[A-Z]3/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: 20.5%; left: 4%;\">" + cell["$t"] + "</div>")
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: 20.5%; left: 4%;\">" + cell["$t"] + "</div>")
                 }
 			    if (data[r].title.$t.match(/[A-Z]4/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (28 + (primeras_nombre * 5.5)).toString() + "%; left: 4%;\">" + cell["$t"] + "</div>");
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (28 + (primeras_nombre++ * 5.5)).toString() + "%; left: 26%;\"></div>")
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (28 + (primeras_nombre * 5.5)).toString() + "%; left: 4%;\">" + cell["$t"] + "</div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (28 + (primeras_nombre++ * 5.5)).toString() + "%; left: 26%;\"></div>")
                 }
                 if (data[r].title.$t.match(/[A-Z]5/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (28 + (primeras++ * 5.5)).toString() + "%; left: 26%;\">" + cell["$t"] + "</div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (28 + (primeras++ * 5.5)).toString() + "%; left: 26%;\">" + cell["$t"] + "</div>");
                 }
                 if (data[r].title.$t.match(/[A-Z]7/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: " + (24 + ((primeras_length + 1) * 5.5)) + "%; left: 4%;\">" + cell["$t"] + "</div>")
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: " + (24 + ((primeras_length + 1) * 5.5)) + "%; left: 4%;\">" + cell["$t"] + "</div>")
                 }
                 if (data[r].title.$t.match(/[A-Z]8/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (++matutinas_nombre * 5.5)).toString() + "%; left: 4%;\">" + cell["$t"] + "</div>");
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (matutinas_nombre * 5.5)).toString() + "%; left: 26%;\"></div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (++matutinas_nombre * 5.5)).toString() + "%; left: 4%;\">" + cell["$t"] + "</div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (matutinas_nombre * 5.5)).toString() + "%; left: 26%;\"></div>");
                 }
                 if (data[r].title.$t.match(/[A-Z]9/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (++matutinas * 5.5)).toString() + "%; left: 26%;\">" + cell["$t"] + "</div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (++matutinas * 5.5)).toString() + "%; left: 26%;\">" + cell["$t"] + "</div>");
                 }
                 if (data[r].title.$t.match(/[A-Z]11/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: 20.5%; left: 64%;\">" + cell["$t"] + "</div>")
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: 20.5%; left: 64%;\">" + cell["$t"] + "</div>")
                 }
                 if (data[r].title.$t.match(/[A-Z]12/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (28 + (vespertinas_nombre * 5.5)).toString() + "%; left: 64%;\">" + cell["$t"] + "</div>");
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (28 + (vespertinas_nombre++ * 5.5)).toString() + "%; left: 86%;\"></div>")
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (28 + (vespertinas_nombre * 5.5)).toString() + "%; left: 64%;\">" + cell["$t"] + "</div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (28 + (vespertinas_nombre++ * 5.5)).toString() + "%; left: 86%;\"></div>")
                 }
                 if (data[r].title.$t.match(/[A-Z]13/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (28 + (vespertinas++ * 5.5)).toString() + "%; left: 86%;\">" + cell["$t"] + "</div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (28 + (vespertinas++ * 5.5)).toString() + "%; left: 86%;\">" + cell["$t"] + "</div>");
                 }
                 if (data[r].title.$t.match(/[A-Z]15/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: " + (24 + ((vespertinas_length + 1) * 5.5)) + "%; left: 64%;\">" + cell["$t"] + "</div>")
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: " + (24 + ((vespertinas_length + 1) * 5.5)) + "%; left: 64%;\">" + cell["$t"] + "</div>")
                 }
                 if (data[r].title.$t.match(/[A-Z]16/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (++nocturnas_nombre * 5.5)).toString() + "%; left: 64%;\">" + cell["$t"] + "</div>");
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (nocturnas_nombre * 5.5)).toString() + "%; left: 86%;\"></div>")
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (++nocturnas_nombre * 5.5)).toString() + "%; left: 64%;\">" + cell["$t"] + "</div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (nocturnas_nombre * 5.5)).toString() + "%; left: 86%;\"></div>")
                 }
                 if (data[r].title.$t.match(/[A-Z]17/i)) {
-                    $("BODY").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (++nocturnas * 5.5)).toString() + "%; left: 86%;\">" + cell["$t"] + "</div>");
+                    $("#template").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (++nocturnas * 5.5)).toString() + "%; left: 86%;\">" + cell["$t"] + "</div>");
                 }
 			}
 		}
