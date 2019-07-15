@@ -1,171 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Agencia El Padrino</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<meta charset="UTF-8">
+<title>Agencia El Colibri</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-	<style type="text/css">
-		body, html {
-			height: 100%;
-			margin: 0;
-		}
+<style type="text/css">
+    body, html {
+	height: 100%;
+	margin: 0;
+    }
 
-		@font-face {
-			font-family: 'SAS Monospace';
-			src: url('SAS Monospace Bold Regular.ttf');
-		}
+    @font-face {
+	font-family: 'SAS Monospace';
+	src: url('SAS Monospace Bold Regular.ttf');
+    }
 
-		@font-face {
-			font-family: 'Fira Mono';
-			src: url('FiraMono-Bold.ttf');
-		}
+    @font-face {
+	font-family: 'Fira Mono';
+	src: url('FiraMono-Bold.ttf');
+    }
 
-		.dia {
-			position: absolute;
-			color: rgb(255,255,255);
-			font-size: 4.2vh;
-			font-family: 'SAS Monospace';
-			font-weight: 100;
-			text-align: center;
-		}
-		.cabeza_titulo {
-			position: absolute;
-			color: rgb(3,76,160);
-			font-size: 6vh;
-			letter-spacing: 10px;
-			font-family: 'Fira Mono';
-			font-weight: 900;
-		}
-		.cabeza_nombre {
-			position: absolute;
-			color: rgb(88,186,70);
-			font-size: 4.3vh;
-			letter-spacing: 5px;
-			font-family: 'SAS Monospace';
-			font-weight: 900;
-		}
-		.cabeza {
-			position: absolute;
-			color: rgb(206,42,43);
-			font-size: 4.3vh;
-			letter-spacing: 10px;
-			font-family: 'SAS Monospace';
-			font-weight: 900;
-		}
-		.cabeza_border {
-			position: absolute;
-			border-width: 3px;
-			border-color: rgb(3,76,160);
-			border-style: solid;
-			height: 4%;
-			width: 12%;
-			margin-left: -2.5%;
-			margin-top: 0.1%;
-		}
-		.container {
-			position: relative;
-			text-align: center;
-			color: white;
-			width: 100%; height: 100%;
-		}
-	</style>
+    .dia {
+	position: absolute;
+	color: rgb(255,255,255);
+	font-size: 4.2vh;
+	font-family: 'SAS Monospace';
+	font-weight: 100;
+	text-align: center;
+	zindex: 100000;
+    }
+    .cabeza_titulo {
+        position: absolute;
+        color: rgb(3,76,160);
+        font-size: 6vh;
+        letter-spacing: 10px;
+        font-family: 'Fira Mono';
+        font-weight: 900;
+    	zindex: 100000;
+    }
+    .cabeza_nombre {
+        position: absolute;
+        color: rgb(88,186,70);
+        font-size: 4.3vh;
+        letter-spacing: 5px;
+        font-family: 'SAS Monospace';
+        font-weight: 900;
+        zindex: 100000;
+    }
+    .cabeza {
+	position: absolute;
+	color: rgb(206,42,43);
+	font-size: 4.3vh;
+	letter-spacing: 10px;
+	font-family: 'SAS Monospace';
+	font-weight: 900;
+        zindex: 100000;
+    }
+    .cabeza_border {
+        position: absolute;
+        border-width: 3px;
+        border-color: rgb(3,76,160);
+        border-style: solid;
+        height: 4%;
+        width: 12%;
+        margin-left: -2.5%;
+        margin-top: 0.1%;
+	zindex: 100000;
+    }
+</style>
 
 </head>
 
 <body>
-	<div class="container">
-		<img id="template" src="template.jpg" style="width: 100%; height: 100%;">
-		</img>
-	</div>
+	<img id="template" src="template.jpg" style="position: relative; width: 100%; height: 100%;">
+	<body>
+		<div id="tem_D1" class="dia" style="top: 26.5%; left: 43%;"></div>
+		<div id="tem_A3" class="cabeza_titulo" style="top: 20.5%; left: 4%;"></div>
+		<div id="tem_A4" class="cabeza_nombre" style="top: 28%; left: 4%;"></div>
+		<div id="tem_A4_b" class="cabeza_border" style="top: 28%; left: 26%;"></div>
+		<div id="tem_B4" class="cabeza_nombre" style="top: 33.5%; left: 4%;"></div>
+		<div id="tem_B4_b" class="cabeza_border" style="top: 33.5%; left: 26%;"></div>
+		<div id="tem_C4" class="cabeza_nombre" style="top: 39%; left: 4%;"></div>
+		<div id="tem_C4_b" class="cabeza_border" style="top: 39%; left: 26%;"></div>
+		<div id="tem_D4" class="cabeza_nombre" style="top: 44.5%; left: 4%;"></div>
+		<div id="tem_D4_b" class="cabeza_border" style="top: 44.5%; left: 26%;"></div>
+		<div id="tem_A5" class="cabeza" style="top: 28%; left: 26%;"></div>
+		<div id="tem_B5" class="cabeza" style="top: 33.5%; left: 26%;"></div>
+		<div id="tem_C5" class="cabeza" style="top: 39%; left: 26%;"></div>
+		<div id="tem_D5" class="cabeza" style="top: 44.5%; left: 26%;"></div>
+		<div id="tem_A7" class="cabeza_titulo" style="top: 51.5%; left: 4%;"></div>
+		<div id="tem_A8" class="cabeza_nombre" style="top: 60%; left: 4%;"></div>
+		<div id="tem_A8_b" class="cabeza_border" style="top: 60%; left: 26%;"></div>
+		<div id="tem_B8" class="cabeza_nombre" style="top: 65.5%; left: 4%;"></div>
+		<div id="tem_B8_b" class="cabeza_border" style="top: 65.5%; left: 26%;"></div>
+		<div id="tem_C8" class="cabeza_nombre" style="top: 71%; left: 4%;"></div>
+		<div id="tem_C8_b" class="cabeza_border" style="top: 71%; left: 26%;"></div>
+		<div id="tem_D8" class="cabeza_nombre" style="top: 76.5%; left: 4%;"></div>
+		<div id="tem_D8_b" class="cabeza_border" style="top: 76.5%; left: 26%;"></div>
+		<div id="tem_E8" class="cabeza_nombre" style="top: 82%; left: 4%;"></div>
+		<div id="tem_E8_b" class="cabeza_border" style="top: 82%; left: 26%;"></div>
+		<div id="tem_A11" class="cabeza_titulo" style="top: 20.5%; left: 64%;"></div>
+		<div id="tem_A12" class="cabeza_nombre" style="top: 28%; left: 64%;"></div>
+		<div id="tem_A12_b" class="cabeza_border" style="top: 28%; left: 86%;"></div>
+		<div id="tem_B12" class="cabeza_nombre" style="top: 33.5%; left: 64%;"></div>
+		<div id="tem_B12_b" class="cabeza_border" style="top: 33.5%; left: 86%;"></div>
+		<div id="tem_C12" class="cabeza_nombre" style="top: 39%; left: 64%;"></div>
+		<div id="tem_C12_b" class="cabeza_border" style="top: 39%; left: 86%;"></div>
+		<div id="tem_D12" class="cabeza_nombre" style="top: 44.5%; left: 64%;"></div>
+		<div id="tem_D12_b" class="cabeza_border" style="top: 44.5%; left: 86%;"></div>
+		<div id="tem_A15" class="cabeza_titulo" style="top: 51.5%; left: 64%;"></div>
+		<div id="tem_A16" class="cabeza_nombre" style="top: 60%; left: 64%;"></div>
+		<div id="tem_A16_b" class="cabeza_border" style="top: 60%; left: 86%;"></div>
+		<div id="tem_B16" class="cabeza_nombre" style="top: 65.5%; left: 64%;"></div>
+		<div id="tem_B16_b" class="cabeza_border" style="top: 65.5%; left: 86%;"></div>
+		<div id="tem_C16" class="cabeza_nombre" style="top: 71%; left: 64%;"></div>
+		<div id="tem_C16_b" class="cabeza_border" style="top: 71%; left: 86%;"></div>
+		<div id="tem_D16" class="cabeza_nombre" style="top: 76.5%; left: 64%;"></div>
+		<div id="tem_D16_b" class="cabeza_border" style="top: 76.5%; left: 86%;"></div>
+		<div id="tem_E16" class="cabeza_nombre" style="top: 82%; left: 64%;"></div>
+		<div id="tem_E16_b" class="cabeza_border" style="top: 82%; left: 86%;"></div>
+		<div id="tem_F16" class="cabeza_nombre" style="top: 87.5%; left: 64%;"></div>
+		<div id="tem_F16_b" class="cabeza_border" style="top: 87.5%; left: 86%;"></div>
+		<div id="tem_G16" class="cabeza_nombre" style="top: 93%; left: 64%;"></div>
+		<div id="tem_G16_b" class="cabeza_border" style="top: 93%; left: 86%;"></div>
+	</img>
 </body>
 
 <script>
 	function doData(data) {
-		data = data.feed.entry;
-		$("[id^='tem_']").remove();
+		data = data.feed.entry
+		$("div[id^=tem_]").text("");
 		if (data[2].title.$t == 'D1') {
-			let primeras_nombre = 0;
-			let primeras = 0;
-			let primeras_length = 0;
-			let matutinas_nombre = 0;
-			let matutinas = 0;
-			let matutinas_length = 0;
-			let vespertinas_nombre = 0;
-			let vespertinas = 0;
-			let vespertinas_length = 0;
-			let nocturnas_nombre = 0;
-			let nocturnas = 0;
-			let nocturnas_length = 0;
-			for(var r=0; r<data.length; r++) {
-				if (data[r].title.$t.match(/[A-Z]4/i)) {
-					primeras_length++;
-				}
-				if (data[r].title.$t.match(/[A-Z]8/i)) {
-					matutinas_length++;
-				}
-				if (data[r].title.$t.match(/[A-Z]12/i)) {
-					vespertinas_length++;
-				}
-				if (data[r].title.$t.match(/[A-Z]16/i)) {
-					nocturnas_length++;
-				}
-			}
 			for(var r=0; r<data.length; r++) {
 				var cell = data[r]["gs$cell"];
-				if (data[r].title.$t == 'D1') {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"dia\" style=\"top: 26.5%; left: 43%;\">" + cell["$t"] + "</div>")
-				}
-				if (data[r].title.$t.match(/[A-Z]3/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: 20.5%; left: 4%;\">" + cell["$t"] + "</div>")
-				}
-				if (data[r].title.$t.match(/[A-Z]4/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (28 + (primeras_nombre * 5.5)).toString() + "%; left: 4%;\">" + cell["$t"] + "</div>");
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (28 + (primeras_nombre++ * 5.5)).toString() + "%; left: 26%;\"></div>")
-				}
-				if (data[r].title.$t.match(/[A-Z]5/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (28 + (primeras++ * 5.5)).toString() + "%; left: 26%;\">" + cell["$t"] + "</div>");
-				}
-				if (data[r].title.$t.match(/[A-Z]7/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: " + (24 + ((primeras_length + 1) * 5.5)) + "%; left: 4%;\">" + cell["$t"] + "</div>")
-				}
-				if (data[r].title.$t.match(/[A-Z]8/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (++matutinas_nombre * 5.5)).toString() + "%; left: 4%;\">" + cell["$t"] + "</div>");
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (matutinas_nombre * 5.5)).toString() + "%; left: 26%;\"></div>");
-				}
-				if (data[r].title.$t.match(/[A-Z]9/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (27 + ((primeras_length + 1) * 5.5) + (++matutinas * 5.5)).toString() + "%; left: 26%;\">" + cell["$t"] + "</div>");
-				}
-				if (data[r].title.$t.match(/[A-Z]11/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: 20.5%; left: 64%;\">" + cell["$t"] + "</div>")
-				}
-				if (data[r].title.$t.match(/[A-Z]12/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (28 + (vespertinas_nombre * 5.5)).toString() + "%; left: 64%;\">" + cell["$t"] + "</div>");
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (28 + (vespertinas_nombre++ * 5.5)).toString() + "%; left: 86%;\"></div>")
-				}
-				if (data[r].title.$t.match(/[A-Z]13/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (28 + (vespertinas++ * 5.5)).toString() + "%; left: 86%;\">" + cell["$t"] + "</div>");
-				}
-				if (data[r].title.$t.match(/[A-Z]15/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_titulo\" style=\"top: " + (24 + ((vespertinas_length + 1) * 5.5)) + "%; left: 64%;\">" + cell["$t"] + "</div>")
-				}
-				if (data[r].title.$t.match(/[A-Z]16/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_nombre\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (++nocturnas_nombre * 5.5)).toString() + "%; left: 64%;\">" + cell["$t"] + "</div>");
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza_border\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (nocturnas_nombre * 5.5)).toString() + "%; left: 86%;\"></div>")
-				}
-				if (data[r].title.$t.match(/[A-Z]17/i)) {
-					$(".container").append("<div id=\"tem_" + data[r].title.$t + "\" class=\"cabeza\" style=\"top: " + (27 + ((vespertinas_length + 1) * 5.5) + (++nocturnas * 5.5)).toString() + "%; left: 86%;\">" + cell["$t"] + "</div>");
-				}
+				$("#tem_" + data[r].title.$t).text(cell["$t"]);
 			}
 		}
-
-	}
+    }
 	function refresh() {
-		jQuery.ajax({
-			url: "https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData",
-			dataType: 'script',
-			async: true
-		});
+	  	jQuery.ajax({
+	        url: "https://spreadsheets.google.com/feeds/cells/1RYCzqVvf23nT8o_-LI-Q9X6_DiEksN1qO9fZajFUI5I/1/public/values?alt=json-in-script&callback=doData",
+	        dataType: 'script',
+	        async: true
+    	});
 	}
 	window.setInterval(refresh, 5000);
 	refresh();
